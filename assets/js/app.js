@@ -8,7 +8,7 @@ window.addEventListener('load', function(){
   array.forEach(function(e){
     var fragment = document.createDocumentFragment();
     elementoLi = document.createElement("li");
-    elementoLi.setAttribute("class","coder all");
+    elementoLi.setAttribute("class","coder " + e.grupo);
     elementoH4 = document.createElement("h4");
     elementoH4.innerHTML = e.nombre+" "+e.apellido;
     elementoDIV = document.createElement("div");
@@ -25,12 +25,11 @@ window.addEventListener('load', function(){
 
 select.onchange = function(){
   array.forEach(function(e,i){
-    if(select.value==e.grupo)
-    {
-      // for(var j =i; j<img.length;j++){
-      //     eliminar(img[j].classList);
-      //     img[j].classList.add(e.grupo);
-      // }
+    if(select.value==e.grupo){
+      liCoder[i].style.display = "block";
+    }
+    else{
+      liCoder[i].style.display = "none";
     }
   });
 }
